@@ -6,13 +6,13 @@
 }
 
 @theme {
-  --color-background: #fafafa;
-  --color-surface: #f4f4f5;
-  --color-border: #e4e4e7;
-  --color-foreground: #09090b;
-  --color-muted: #71717a;
-  --color-accent: #0284c7;
-  --color-tag: #16a34a;
+  --color-background: #f9f7f5;
+  --color-surface: #f2f0ec;
+  --color-border: #e8e4df;
+  --color-foreground: #18181b;
+  --color-muted: #78716c;
+  --color-accent: #7c3aed;
+  --color-tag: #059669;
 }
 
 html {
@@ -27,6 +27,6 @@ body {
 }
 
 ::selection {
-  background-color: rgba(2, 132, 199, 0.12);
-  color: #09090b;
+  background-color: rgba(124, 58, 237, 0.12);
+  color: #18181b;
 }

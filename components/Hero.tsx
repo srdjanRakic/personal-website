@@ -19,16 +19,15 @@ const item = {
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-16 px-6 overflow-hidden">
-      {/* Subtle grid background */}
+      {/* Aurora gradient blobs */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            'linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-          maskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)',
-          WebkitMaskImage:
-            'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)',
+          background: `
+            radial-gradient(ellipse 65% 55% at 10% 65%, rgba(124, 58, 237, 0.09) 0%, transparent 70%),
+            radial-gradient(ellipse 55% 45% at 85% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 70%),
+            radial-gradient(ellipse 45% 55% at 55% 95%, rgba(5, 150, 105, 0.06) 0%, transparent 70%)
+          `,
         }}
       />
 
@@ -48,9 +47,18 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="text-5xl md:text-7xl font-semibold text-foreground leading-[1.05] tracking-tight mb-6"
+            className="text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight mb-6"
           >
-            Backend Engineer.{' '}
+            <span
+              style={{
+                backgroundImage: 'linear-gradient(135deg, #18181b 20%, #7c3aed 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Backend Engineer.
+            </span>{' '}
             <span className="text-muted">AI Platform.</span>
           </motion.h1>
 
@@ -66,14 +74,16 @@ export function Hero() {
           <motion.div variants={item} className="flex items-center gap-3 mb-20">
             <a
               href="#case-studies"
-              className="flex items-center gap-2 px-5 py-2.5 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors duration-200"
+              className="flex items-center gap-2 px-5 py-2.5 text-white text-sm font-medium rounded-md hover:opacity-90 transition-opacity duration-200"
+              style={{ backgroundImage: 'linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%)' }}
             >
               View Case Studies
               <ArrowRight size={14} />
             </a>
             <a
               href="#contact"
-              className="px-5 py-2.5 border border-border text-foreground text-sm font-medium rounded-md hover:border-foreground/30 transition-colors duration-200"
+              className="px-5 py-2.5 border text-sm font-medium rounded-md transition-colors duration-200 hover:bg-accent/5"
+              style={{ borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}
             >
               Contact
             </a>
