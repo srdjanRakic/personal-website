@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const links = [
   { label: 'Expertise', href: '#expertise' },
@@ -29,12 +30,21 @@ export function Nav() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a
-          href="#"
-          className="font-heading font-bold text-base text-foreground tracking-tight leading-none"
-        >
-          SR
+        <a href="#" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-full overflow-hidden ring-1 ring-border shrink-0">
+            <Image
+              src="/profile-pic.jpg"
+              alt="Srdjan Rakic"
+              width={32}
+              height={32}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+          <span className="font-heading font-semibold text-sm text-foreground tracking-tight">
+            Srdjan Rakic
+          </span>
         </a>
+
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
