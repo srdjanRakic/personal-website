@@ -23,13 +23,16 @@ export function Nav() {
     <motion.header
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'border-b border-border backdrop-blur-md bg-background/80' : ''
+        scrolled ? 'border-b border-border backdrop-blur-lg bg-background/85' : ''
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-mono text-sm font-semibold text-foreground tracking-tight">
+        <a
+          href="#"
+          className="font-heading font-bold text-base text-foreground tracking-tight leading-none"
+        >
           SR
         </a>
         <nav className="hidden md:flex items-center gap-8">

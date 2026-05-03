@@ -63,66 +63,87 @@ export function CaseStudies() {
           className="mb-16"
         >
           <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">System Design</p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground tracking-tight">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground tracking-tight">
             Case Studies
           </h2>
         </motion.div>
 
-        <div className="space-y-px bg-border">
+        <div className="space-y-4">
           {cases.map((c, i) => (
             <motion.div
               key={c.id}
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1 , y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="bg-background p-8 md:p-10 group hover:bg-surface transition-colors duration-200"
+              className="relative rounded-xl border border-border bg-surface/50 p-8 md:p-10 overflow-hidden group hover:border-accent/30 hover:bg-surface transition-all duration-300"
             >
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-xs text-muted">{c.id}</span>
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground">{c.system}</h3>
-                </div>
-                <ArrowUpRight
-                  size={16}
-                  className="text-border group-hover:text-muted transition-colors mt-1 shrink-0"
-                />
+              {/* Ghost index number */}
+              <div
+                className="absolute -bottom-6 -right-4 font-heading font-bold leading-none select-none pointer-events-none text-foreground transition-opacity duration-300"
+                style={{
+                  fontSize: 'clamp(6rem, 14vw, 11rem)',
+                  opacity: 0.035,
+                }}
+              >
+                {c.id}
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-8">
-                {c.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-xs text-tag border border-border px-2.5 py-0.5 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              {/* Left accent line on hover */}
+              <div
+                className="absolute left-0 top-10 bottom-10 w-[3px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ backgroundImage: 'linear-gradient(180deg, #7c3aed, #3b82f6)' }}
+              />
 
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div>
-                  <p className="text-xs text-muted uppercase tracking-widest mb-3 font-medium">
-                    Problem
-                  </p>
-                  <p className="text-sm text-muted leading-relaxed">{c.problem}</p>
+              <div className="relative">
+                <div className="flex items-start justify-between mb-5">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-mono text-xs text-muted/60">{c.id}</span>
+                    <h3 className="font-heading font-semibold text-lg md:text-xl text-foreground">
+                      {c.system}
+                    </h3>
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-border group-hover:text-accent transition-colors duration-200 mt-0.5 shrink-0"
+                  />
                 </div>
-                <div>
-                  <p className="text-xs text-muted uppercase tracking-widest mb-3 font-medium">
-                    Architecture
-                  </p>
-                  <ul className="space-y-2">
-                    {c.architecture.map((point) => (
-                      <li key={point} className="flex items-start gap-2.5 text-sm text-muted">
-                        <span className="text-accent mt-0.5 shrink-0 font-mono">→</span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
 
-              <div className="pt-6 border-t border-border">
-                <p className="font-mono text-xs text-tag">{c.outcome}</p>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {c.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="font-mono text-xs text-tag bg-tag/8 border border-tag/20 px-2.5 py-0.5 rounded-md"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <p className="text-xs text-muted/70 uppercase tracking-widest mb-3 font-medium">
+                      Problem
+                    </p>
+                    <p className="text-sm text-muted leading-relaxed">{c.problem}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted/70 uppercase tracking-widest mb-3 font-medium">
+                      Architecture
+                    </p>
+                    <ul className="space-y-2">
+                      {c.architecture.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5 text-sm text-muted">
+                          <span className="text-accent mt-0.5 shrink-0 font-mono text-xs">→</span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="pt-5 border-t border-border">
+                  <p className="font-mono text-xs text-tag">{c.outcome}</p>
+                </div>
               </div>
             </motion.div>
           ))}

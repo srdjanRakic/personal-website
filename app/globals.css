@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "JetBrains Mono", monospace;
 }
 
@@ -29,4 +30,30 @@ body {
 ::selection {
   background-color: rgba(124, 58, 237, 0.12);
   color: #18181b;
+}
+
+/* Dark section — Contact + Footer inherit these overrides automatically */
+.section-dark {
+  background-color: #18181b;
+  --color-background: #18181b;
+  --color-surface: #211f1c;
+  --color-border: #2e2b28;
+  --color-foreground: #f0ede8;
+  --color-muted: #9e9790;
+  --color-accent: #a78bfa;
+  --color-tag: #34d399;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
 }
